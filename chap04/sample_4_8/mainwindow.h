@@ -20,8 +20,7 @@ private:
     enum treeColNum{colItem=0,colItemType=1};
     QPixmap curPixmap;
     QLabel labelFileName;
-    int pixRatioW;
-    int pixRatioH;
+    float pixRatio;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -48,6 +47,14 @@ private slots:
 
 
     void on_actFitHigh_triggered();
+
+    void on_actScanItem_triggered();
+
+    void on_actZoomIn_triggered();
+
+    void on_actZoomOut_triggered();
+
+    void on_actRealSize_triggered();
 
 private:
     Ui::MainWindow *ui;

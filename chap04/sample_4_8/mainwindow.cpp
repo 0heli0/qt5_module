@@ -128,9 +128,12 @@ void MainWindow::on_treeWidget_currentItemChanged(QTreeWidgetItem *current, QTre
         ui->actDelItem->setEnabled(true);
         ui->actFitHigh->setEnabled(true);
         ui->actFitWidth->setEnabled(true);
+        ui->actRealSize->setEnabled(true);
+        ui->actZoomIn->setEnabled(true);
+        ui->actZoomOut->setEnabled(true);
         labelFileName.setText(current->data(colItem,Qt::UserRole).toString());
         curPixmap.load(current->data(colItem,Qt::UserRole).toString());
-        ui->label->setPixmap(curPixmap);
+        on_actFitHigh_triggered();
         break;
     }
 
@@ -140,7 +143,8 @@ void MainWindow::on_actFitWidth_triggered()
 {
     int width = ui->scrollArea->width();
     int realWidth = curPixmap.width();
-    pixRatioW = (float)width/realWidth;
+    pixRatio = (float)width/realWidth;
+    qDebug("p:%f,width:%d realWidth:%d",pixRatio,width,realWidth);
     QPixmap pix = curPixmap.scaledToWidth(width - 30);
     ui->label->setPixmap(pix);
 }
@@ -155,7 +159,47 @@ void MainWindow::on_actFitHigh_triggered()
 {
     int height = ui->scrollArea->height();
     int realHeight = curPixmap.height();
-    pixRatioH = (float)height/realHeight;
+    pixRatio = (float)height/realHeight;
+    qDebug("p:%f,height:%d realHeight:%d",pixRatio,height,realHeight);
     QPixmap pix = curPixmap.scaledToHeight(height - 50);
     ui->label->setPixmap(pix);
+}
+
+void MainWindow::on_actScanItem_triggered()
+{
+    for(int i=0;i<ui->treeWidget->topLevelItemCount();i++){
+        QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+        QString str = "*"+item->text(colItem);
+        item->setText(colItem,str);
+    }
+
+}
+
+void MainWindow::on_actZoomIn_triggered()
+{
+    pixRatio*=1.2;
+    int w = pixRatio*curPixmap.width();
+    int h = pixRatio*curPixmap.height();
+    qDebug("p:%f,w:%d h:%d",pixRatio,w,h);
+    QPixmap pix = curPixmap.scaled(w,h);
+    ui->label->setPixmap(pix);
+}
+
+void MainWindow::on_actZoomOut_triggered()
+{
+    pixRatio*=0.8;
+    int w = pixRatio*curPixmap.width();
+    int h = pixRatio*curPixmap.height();
+    qDebug("p:%f,w:%d h:%d",pixRatio,w,h);
+    QPixmap pix = curPixmap.scaled(w,h);
+    ui->label->setPixmap(pix);
+}
+
+void MainWindow::on_actRealSize_triggered()
+{
+    pixRatio = 1;
+    int realHeight = curPixmap.height();
+    int realWidth = curPixmap.width();
+    qDebug("realHeight:%f,realWidth:%d",realHeight,realWidth);
+    ui->label->setPixmap(curPixmap);
 }
