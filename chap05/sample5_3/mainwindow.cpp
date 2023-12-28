@@ -24,9 +24,28 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->statusBar->addWidget(LabCurFile);
     ui->statusBar->addWidget(LabCellPos);
     ui->statusBar->addWidget(LabCellText);
+
+
+    //选择当前单元格变化时的信号与槽
+    connect(theSelection,SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(on_currentChanged(QModelIndex,QModelIndex)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex &old)
+{
+    if(!current.isValid()){
+        return;
+    }
+    int row = current.row();
+    int cloumn = current.column();
+    LabCellPos->setText(QString::asprintf("当前单元格：%d行，%d列",row+1,cloumn+1));
+
+    QStandardItem *item;
+    item=theModel->item(row,cloumn);
+
 }

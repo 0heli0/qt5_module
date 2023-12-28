@@ -28,6 +28,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_currentChanged(const QModelIndex &current,const QModelIndex &old);
+
 private:
     Ui::MainWindow *ui;
 };
