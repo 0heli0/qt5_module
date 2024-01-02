@@ -31,6 +31,8 @@ public:
 private slots:
     void on_currentChanged(const QModelIndex &current,const QModelIndex &old);
 
+    void on_actOpen_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

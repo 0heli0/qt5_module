@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QFileDialog>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -46,6 +46,21 @@ void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex
     LabCellPos->setText(QString::asprintf("当前单元格：%d行，%d列",row+1,cloumn+1));
 
     QStandardItem *item;
-    item=theModel->item(row,cloumn);
+    item=theModel->itemFromIndex(current);
+    LabCellText->setText("单元格内容:"+item->text());
 
+    QFont font = item->font();
+    ui->actFontBold->setChecked(font.bold());
+
+
+
+}
+
+void MainWindow::on_actOpen_triggered()
+{
+    QString curPath=QCoreApplication::applicationDirPath(); //获取应用程序的路径
+    QString fileName=QFileDialog::getOpenFileName(this,"打开一个文件",curPath,
+                 "数据文件(*.txt);;所有文件(*.*)");
+    if (fileName.isEmpty())
+        return; //如果未选择文件，退出
 }
