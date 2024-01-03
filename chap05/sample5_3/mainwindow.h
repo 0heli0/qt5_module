@@ -23,6 +23,7 @@ private:
 
     QStandardItemModel  *theModel;//数据模型
     QItemSelectionModel *theSelection;//Item选择模型
+    void iniModelFromStringList(QStringList&);//从StringList初始化数据模型
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -32,6 +33,8 @@ private slots:
     void on_currentChanged(const QModelIndex &current,const QModelIndex &old);
 
     void on_actOpen_triggered();
+
+    void on_actSave_triggered();
 
 private:
     Ui::MainWindow *ui;
