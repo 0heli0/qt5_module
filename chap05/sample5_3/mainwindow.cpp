@@ -6,6 +6,27 @@ void MainWindow::iniModelFromStringList(QStringList& strList)
 {
     int row = strList.count();
     theModel->setRowCount(row-1);
+    // 写入表头
+    QString headerStr = strList.at(0);
+    QStringList headerList=headerStr.split(QRegExp("\\s+"),QString::SkipEmptyParts);
+    theModel->setHorizontalHeaderLabels(headerList); //设置表头文字
+QStandardItem *item;
+    //写入内容
+    for(int i=1;i<row;i++){
+        QString rowStr = strList.at(i);
+        QStringList rowList = rowStr.split(QRegExp("\\s+"),QString::SkipEmptyParts);
+        for(int j=0;j<FixedColumnCount;j++){
+            item = new QStandardItem(rowList.at(j));
+            if(j==FixedColumnCount-1){
+                item->setCheckable(true);
+                item->setCheckState(Qt::Checked);
+                if(rowList.at(j)=="0")item->setCheckState(Qt::Unchecked);
+            }
+            theModel->setItem(i-1,j,item);
+        }
+
+
+    }
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -76,7 +97,7 @@ void MainWindow::on_actOpen_triggered()
         ui->plainTextEdit->clear();
         while (!textStream.atEnd()) {
             QString lineStr = textStream.readLine();
-            fileContentList.append(fileContentList);
+            fileContentList.append(lineStr);
             ui->plainTextEdit->appendPlainText(lineStr);
         }
     }
