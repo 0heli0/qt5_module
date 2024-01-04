@@ -10,7 +10,7 @@ void MainWindow::iniModelFromStringList(QStringList& strList)
     QString headerStr = strList.at(0);
     QStringList headerList=headerStr.split(QRegExp("\\s+"),QString::SkipEmptyParts);
     theModel->setHorizontalHeaderLabels(headerList); //设置表头文字
-QStandardItem *item;
+    QStandardItem *item;
     //写入内容
     for(int i=1;i<row;i++){
         QString rowStr = strList.at(i);
