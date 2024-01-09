@@ -9,12 +9,7 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    QString addr = ui->addr->text();
-    if(!addr.isNull()&&!addr.isEmpty()){
-        baseUrl ="http://"+addr+"/push/alarm/tk";
-    }else{
-        baseUrl ="http://127.0.0.1:9180/push/alarm/tk";
-    }
+    baseUrl ="http://127.0.0.1:9180/push/alarm/tk";
     manager = new QNetworkAccessManager(this);
     initEventId();
 
