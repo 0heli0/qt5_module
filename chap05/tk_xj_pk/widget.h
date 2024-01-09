@@ -21,6 +21,8 @@ public:
 private:
     void getRequest(const QUrl &requestedUrl);
     void initEventId();
+    void labelAlarmStateChange(const QString &alarmStateStr);
+    void getObsTypeStr(const QString &obsType);
 
 private slots:
     void on_buttonGD12_clicked();
@@ -61,6 +63,9 @@ private:
     QNetworkReply *reply;
     QMap<QString,QString> eventIdMap;
     QString eventId;
+    QString alarmDistance;
+    QString alarmObstacleType;
+    QString obsTypeStr;
 };
 
 #endif // WIDGET_H
