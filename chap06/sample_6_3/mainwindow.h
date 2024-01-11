@@ -17,6 +17,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_actWidgetInsite_triggered();
+
+    void on_tabWidget_tabCloseRequested(int index);
+
+    void on_actWindowInsite_triggered();
+
+    void on_actWindow_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
