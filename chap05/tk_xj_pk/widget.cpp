@@ -99,9 +99,10 @@ void Widget::on_buttonGD12_clicked()
 {
     QString a = baseUrl+"?isAlarm=1&obstacleType=1&distance=12&position=1&eventId="+eventId;
     qDebug() << "url:" << a;
-    getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=1&distance=12&eventId="+eventId));
+    getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=1&distance=12&position=1&eventId="+eventId));
     alarmDistance = "12";
     alarmObstacleType = "1";
+    pos = "1";
     position = "左固定障碍物";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -118,6 +119,7 @@ void Widget::on_buttonGD40_clicked()
     alarmObstacleType = "1";
     getObsTypeStr(alarmObstacleType);
     position = "左固定障碍物";
+    pos = "1";
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
     labelAlarmStateChange(alarmStateStr);
 }
@@ -131,6 +133,7 @@ void Widget::on_buttonGD51_clicked()
     alarmDistance = "52";
     alarmObstacleType = "1";
     position = "左固定障碍物";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
     labelAlarmStateChange(alarmStateStr);
@@ -146,6 +149,7 @@ void Widget::on_buttonGD58_clicked()
     alarmDistance = "58";
     alarmObstacleType = "1";
     position = "左固定障碍物";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
     labelAlarmStateChange(alarmStateStr);
@@ -159,6 +163,7 @@ void Widget::on_buttonR12_clicked()
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=2&distance=12&position=1&eventId="+eventId));
     alarmDistance = "12";
     alarmObstacleType = "2";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：人";
     labelAlarmStateChange(alarmStateStr);
@@ -172,6 +177,7 @@ void Widget::on_buttonR40_clicked()
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=2&distance=40&position=1&eventId="+eventId));
     alarmDistance = "40";
     alarmObstacleType = "2";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：人";
     labelAlarmStateChange(alarmStateStr);
@@ -185,6 +191,7 @@ void Widget::on_buttonR51_clicked()
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=2&distance=52&position=1&eventId="+eventId));
     alarmDistance = "52";
     alarmObstacleType = "2";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：人";
     labelAlarmStateChange(alarmStateStr);
@@ -198,6 +205,7 @@ void Widget::on_buttonR58_clicked()
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=2&distance=58&position=1&eventId="+eventId));
     alarmDistance = "58";
     alarmObstacleType = "2";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：人";
     labelAlarmStateChange(alarmStateStr);
@@ -211,6 +219,7 @@ void Widget::on_buttonNSL51_clicked()
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=3&distance=52&position=1&eventId="+eventId));
     alarmDistance = "52";
     alarmObstacleType = "3";
+    pos = "1";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：泥石流";
     labelAlarmStateChange(alarmStateStr);
@@ -221,7 +230,7 @@ void Widget::on_buttonNSL51_clicked()
  */
 void Widget::on_btCancel12_clicked()
 {
-    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=12&position=1&eventId="+eventId));
+    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=12&position="+pos+"&eventId="+eventId));
     initEventId();
     alarmDistance = "12";
     QString alarmStateStr = "报警状态：报警取消, 报警距离："+alarmDistance+"米, 障碍物类型："+obsTypeStr;
@@ -233,7 +242,7 @@ void Widget::on_btCancel12_clicked()
  */
 void Widget::on_btCancel40_clicked()
 {
-    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+position+"&eventId="+eventId));
+    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     initEventId();
     alarmDistance = "40";
     QString alarmStateStr = "报警状态：报警取消, 报警距离："+alarmDistance+"米, 障碍物类型："+obsTypeStr;
@@ -245,7 +254,7 @@ void Widget::on_btCancel40_clicked()
  */
 void Widget::on_btCancel51_clicked()
 {
-    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=51&position=1&eventId="+eventId));
+    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=52&position="+pos+"&eventId="+eventId));
     initEventId();
     alarmDistance = "52";
     QString alarmStateStr = "报警状态：报警取消, 报警距离："+alarmDistance+"米, 障碍物类型："+obsTypeStr;
@@ -257,7 +266,7 @@ void Widget::on_btCancel51_clicked()
  */
 void Widget::on_btCancel58_clicked()
 {
-    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=58&position=1&eventId="+eventId));
+    getRequest(QUrl(baseUrl+"?isAlarm=2&obstacleType="+alarmObstacleType+"&distance=58&position="+pos+"&eventId="+eventId));
     initEventId();
     alarmDistance = "58";
     QString alarmStateStr = "报警状态：报警取消, 报警距离："+alarmDistance+"米, 障碍物类型："+obsTypeStr;
@@ -281,7 +290,7 @@ void Widget::on_buttonGD12_2_clicked()
     alarmDistance = "12";
     alarmObstacleType = "1";
     position = "中固定障碍物";
-    qint8 pos = 1;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));    alarmDistance = "40";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -293,7 +302,7 @@ void Widget::on_buttonGD12_3_clicked()
     alarmDistance = "12";
     alarmObstacleType = "1";
     position = "右固定障碍物";
-    qint8 pos = 1;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));    alarmDistance = "40";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -305,7 +314,7 @@ void Widget::on_buttonGD40_2_clicked()
     alarmDistance = "40";
     alarmObstacleType = "1";
     position = "中固定障碍物";
-    qint8 pos = 1;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));    alarmDistance = "40";
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -318,7 +327,7 @@ void Widget::on_buttonGD40_3_clicked()
     alarmDistance = "40";
     alarmObstacleType = "1";
     position = "右固定障碍物";
-    qint8 pos = 1;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -327,10 +336,10 @@ void Widget::on_buttonGD40_3_clicked()
 
 void Widget::on_buttonGD51_2_clicked()
 {
-    alarmDistance = "51";
+    alarmDistance = "52";
     alarmObstacleType = "1";
     position = "中固定障碍物";
-    qint8 pos = 1;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -339,10 +348,10 @@ void Widget::on_buttonGD51_2_clicked()
 
 void Widget::on_buttonGD51_3_clicked()
 {
-    alarmDistance = "40";
+    alarmDistance = "52";
     alarmObstacleType = "1";
     position = "右固定障碍物";
-    qint8 pos = 1;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -354,7 +363,7 @@ void Widget::on_buttonGD58_2_clicked()
     alarmDistance = "58";
     alarmObstacleType = "1";
     position = "中固定障碍物";
-    qint8 pos = 1;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -366,7 +375,7 @@ void Widget::on_buttonGD58_3_clicked()
     alarmDistance = "58";
     alarmObstacleType = "1";
     position = "右固定障碍物";
-    qint8 pos = 1;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -379,7 +388,7 @@ void Widget::on_buttonR12_2_clicked()
     alarmDistance = "12";
     alarmObstacleType = "2";
     position = "中人";
-    qint8 pos = 2;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -391,7 +400,7 @@ void Widget::on_buttonR12_3_clicked()
     alarmDistance = "12";
     alarmObstacleType = "2";
     position = "右人";
-    qint8 pos = 2;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -403,7 +412,7 @@ void Widget::on_buttonR40_2_clicked()
     alarmDistance = "40";
     alarmObstacleType = "2";
     position = "中人";
-    qint8 pos = 2;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -415,7 +424,7 @@ void Widget::on_buttonR40_3_clicked()
     alarmDistance = "40";
     alarmObstacleType = "2";
     position = "右人";
-    qint8 pos = 2;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -424,10 +433,10 @@ void Widget::on_buttonR40_3_clicked()
 
 void Widget::on_buttonR51_2_clicked()
 {
-    alarmDistance = "51";
+    alarmDistance = "52";
     alarmObstacleType = "2";
     position = "中人";
-    qint8 pos = 2;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -436,10 +445,10 @@ void Widget::on_buttonR51_2_clicked()
 
 void Widget::on_buttonR51_3_clicked()
 {
-    alarmDistance = "51";
+    alarmDistance = "52";
     alarmObstacleType = "2";
     position = "右人";
-    qint8 pos = 2;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -451,7 +460,7 @@ void Widget::on_buttonR58_2_clicked()
     alarmDistance = "58";
     alarmObstacleType = "2";
     position = "中人";
-    qint8 pos = 2;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -463,7 +472,7 @@ void Widget::on_buttonR58_3_clicked()
     alarmDistance = "58";
     alarmObstacleType = "2";
     position = "右人";
-    qint8 pos = 2;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -474,10 +483,10 @@ void Widget::on_buttonR58_3_clicked()
 
 void Widget::on_buttonNSL51_2_clicked()
 {
-    alarmDistance = "51";
+    alarmDistance = "52";
     alarmObstacleType = "3";
     position = "中间泥石流";
-    qint8 pos = 3;
+    pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
@@ -486,10 +495,10 @@ void Widget::on_buttonNSL51_2_clicked()
 
 void Widget::on_buttonNSL51_3_clicked()
 {
-    alarmDistance = "51";
+    alarmDistance = "52";
     alarmObstacleType = "3";
     position = "右泥石流";
-    qint8 pos = 3;
+    pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;

@@ -103,6 +103,7 @@ private:
     QString alarmObstacleType;
     QString obsTypeStr;
     QString position;
+    QString pos;
 };
 
 #endif // WIDGET_H

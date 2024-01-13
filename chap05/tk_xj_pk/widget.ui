@@ -98,7 +98,10 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel12">
+          <widget class="QPushButton" name="btCancel12_2">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -175,7 +178,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel12_2">
+          <widget class="QPushButton" name="btCancel12">
            <property name="text">
             <string>取消</string>
            </property>
@@ -253,6 +256,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btCancel12_3">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -344,7 +350,10 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel40">
+          <widget class="QPushButton" name="btCancel40_2">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -424,7 +433,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel40_2">
+          <widget class="QPushButton" name="btCancel40">
            <property name="text">
             <string>取消</string>
            </property>
@@ -508,6 +517,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btCancel40_3">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -622,7 +634,10 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel51">
+          <widget class="QPushButton" name="btCancel51_2">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -696,7 +711,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel51_2">
+          <widget class="QPushButton" name="btCancel51">
            <property name="text">
             <string>取消</string>
            </property>
@@ -771,6 +786,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btCancel51_3">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -839,7 +857,10 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel58">
+          <widget class="QPushButton" name="btCancel58_2">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
@@ -919,7 +940,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btCancel58_2">
+          <widget class="QPushButton" name="btCancel58">
            <property name="text">
             <string>取消</string>
            </property>
@@ -1000,6 +1021,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btCancel58_3">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>取消</string>
            </property>
