@@ -55,6 +55,42 @@ private slots:
 
     void on_addr_textChanged(const QString &arg1);
 
+    void on_buttonGD12_2_clicked();
+
+    void on_buttonGD12_3_clicked();
+
+    void on_buttonGD40_2_clicked();
+
+    void on_buttonGD40_3_clicked();
+
+    void on_buttonGD51_2_clicked();
+
+    void on_buttonGD51_3_clicked();
+
+    void on_buttonGD58_2_clicked();
+
+    void on_buttonGD58_3_clicked();
+
+    void on_buttonR12_2_clicked();
+
+    void on_buttonR12_3_clicked();
+
+    void on_buttonR40_2_clicked();
+
+    void on_buttonR40_3_clicked();
+
+    void on_buttonR51_2_clicked();
+
+    void on_buttonR51_3_clicked();
+
+    void on_buttonR58_2_clicked();
+
+    void on_buttonR58_3_clicked();
+
+    void on_buttonNSL51_2_clicked();
+
+    void on_buttonNSL51_3_clicked();
+
 private:
     Ui::Widget *ui;
     QString baseUrl;
@@ -66,6 +102,7 @@ private:
     QString alarmDistance;
     QString alarmObstacleType;
     QString obsTypeStr;
+    QString position;
 };
 
 #endif // WIDGET_H
