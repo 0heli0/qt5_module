@@ -216,13 +216,13 @@ void Widget::on_buttonR58_clicked()
  */
 void Widget::on_buttonNSL51_clicked()
 {
-    getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=3&distance=52&position=1&eventId="+eventId));
-    alarmDistance = "52";
-    alarmObstacleType = "3";
-    pos = "1";
-    getObsTypeStr(alarmObstacleType);
-    QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：泥石流";
-    labelAlarmStateChange(alarmStateStr);
+//    getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType=3&distance=52&position=1&eventId="+eventId));
+//    alarmDistance = "52";
+//    alarmObstacleType = "3";
+//    pos = "1";
+//    getObsTypeStr(alarmObstacleType);
+//    QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型：泥石流";
+//    labelAlarmStateChange(alarmStateStr);
 }
 
 /*
@@ -485,7 +485,7 @@ void Widget::on_buttonNSL51_2_clicked()
 {
     alarmDistance = "52";
     alarmObstacleType = "3";
-    position = "中间泥石流";
+    position = "雾天泥石流";
     pos = "2";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
@@ -497,10 +497,15 @@ void Widget::on_buttonNSL51_3_clicked()
 {
     alarmDistance = "52";
     alarmObstacleType = "3";
-    position = "右泥石流";
+    position = "晴天泥石流";
     pos = "3";
     getRequest(QUrl(baseUrl+"?isAlarm=1&obstacleType="+alarmObstacleType+"&distance="+alarmDistance+"&position="+pos+"&eventId="+eventId));
     getObsTypeStr(alarmObstacleType);
     QString alarmStateStr = "报警状态：报警, 报警距离："+alarmDistance+"米, 障碍物类型："+position;
     labelAlarmStateChange(alarmStateStr);
+}
+
+void Widget::on_pushButton_clicked()
+{
+    getRequest(QUrl("http://127.0.0.1:9180/push/heart"));
 }

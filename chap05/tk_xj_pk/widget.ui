@@ -29,6 +29,19 @@
     </layout>
    </item>
    <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="maximumSize">
+      <size>
+       <width>130</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>状态推送</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLabel" name="label_alarm">
      <property name="maximumSize">
       <size>
@@ -615,6 +628,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonNSL51">
+           <property name="styleSheet">
+            <string notr="true">background:transparent;color: transparent; background-color: transparent;</string>
+           </property>
            <property name="text">
             <string>左泥石流</string>
            </property>
@@ -692,8 +708,11 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonNSL51_2">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
-            <string>中泥石流</string>
+            <string>雾天泥石流</string>
            </property>
           </widget>
          </item>
@@ -767,7 +786,7 @@
          <item>
           <widget class="QPushButton" name="buttonNSL51_3">
            <property name="text">
-            <string>右泥石流</string>
+            <string>晴天泥石流</string>
            </property>
           </widget>
          </item>

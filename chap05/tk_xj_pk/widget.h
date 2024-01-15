@@ -91,6 +91,8 @@ private slots:
 
     void on_buttonNSL51_3_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Widget *ui;
     QString baseUrl;
